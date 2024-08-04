@@ -1,0 +1,168 @@
+
+
+
+.background-div {
+  background-color: hsl(180, 29%, 50%);
+  height: 10rem;
+  position: absolute;
+  min-width: 100%;
+  top: 0;
+  z-index: -1;
+}
+
+.background-div > img {
+  height: 100%;
+}
+
+
+
+.main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 6rem 0rem;
+}
+
+
+.filter-section, .jobs-section {
+  width: 90%;
+}
+
+
+.jobs-section {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.5rem;
+}
+
+
+.job-card, .job-card-featured {
+  background-color: white;
+  box-shadow: 0px 10px 10px 0px hsl(180, 8%, 52%, 0.2);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 0.2rem;
+  padding: 1rem 2rem;
+
+
+}
+
+.job-card-featured {
+  border-left: 0.25rem solid hsl(180, 29%, 50%);
+}
+
+
+
+.job-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.job-info > div > * {
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+.company {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.company > p {
+  font-weight: 700;
+  margin: 0;
+  border-radius: 1rem;
+}
+
+.company > p:nth-child(1) {
+  color: hsl(180, 29%, 50%);
+}
+
+.company > p:nth-child(2) {
+  color: white;
+  background-color: hsl(180, 29%, 50%);
+  
+  padding: 0rem 0.3rem;
+  font-size: 0.7rem;
+}
+
+.company > p:nth-child(3) {
+  color: white;
+  background-color: black;
+  
+  padding: 0rem 0.3rem;
+  font-size: 0.7rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.job-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding-left: 0;
+  list-style: none;
+}
+
+.job-details > li {
+  color: hsl(180, 8%, 52%);
+  margin: 0;
+}
+
+.custom-bullet {
+  height: 5px;
+  width: 5px;
+
+  background-color: hsl(180, 8%, 52%);
+  border-radius: 1rem;
+}
+
+
+
+
+.job-requirements {
+  display: flex;
+  gap: 1rem;
+
+  list-style: none;
+}
+
+.job-requirements > li > button {
+  color: hsl(180, 29%, 50%);
+  font-weight: 700;
+  font-size: 0.8rem;
+
+  border: 0;
+  outline: 0;
+
+  background-color: hsl(180, 31%, 95%);
+  padding: 0.4rem;
+
+  cursor: pointer;
+}
