@@ -4,8 +4,6 @@ import { getJobs } from "./hooks/fetchJobs"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-import desktopbg from "/images/bg-header-desktop.svg";
-
 
 import './App.css'
 
@@ -120,9 +118,7 @@ const App = () => {
 
                                 <ul className="job-details">
                                     <li>{job.postedAt}</li>
-                                    <div className="custom-bullet"></div>
                                     <li>{job.contract}</li>
-                                    <div className="custom-bullet"></div>
                                     <li>{job.location}</li>
                                 </ul>
 
@@ -131,7 +127,7 @@ const App = () => {
                         </div>
                         </>
 
-                        <ul className="job-requirements" aria-label="Requiredments List">
+                        <ul className="job-requirements">
 
                             <li>
                                 <button type="button" aria-label={`Filter by ${job.role}`} onClick={() => filter(job.role)}>{job.role}</button>
