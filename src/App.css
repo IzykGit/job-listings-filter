@@ -254,13 +254,6 @@
   margin: 0;
 }
 
-.custom-bullet {
-  height: 5px;
-  width: 5px;
-
-  background-color: hsl(180, 8%, 52%);
-  border-radius: 1rem;
-}
 
 
 
