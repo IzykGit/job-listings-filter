@@ -6,20 +6,23 @@ import 'aos/dist/aos.css'
 
 import desktopbg from "/images/bg-header-desktop.svg"
 
+
 import './App.css'
 
 const App = () => {
 
     const [allJobs, setAllJobs] = useState([])
+    const [displayedJobs, setDisplayedJobs] = useState([])
 
-    const [filteres, setFilteres] = useState([])
+    const [filters, setFilters] = useState([])
 
     useEffect(() => {
+
         const fetchingJobs = async () => {
             const jobs = await getJobs()
             setAllJobs(jobs)
+            setDisplayedJobs(jobs)
         }
-
         fetchingJobs()
 
         AOS.init({
@@ -30,12 +33,44 @@ const App = () => {
 
 
     const filter = (value) => {
-        let filteredJobs = { ...allJobs }
 
+        let newFilters;
+  
+        if(filters.includes(value)) {
+            newFilters = filters.filter(ele => ele !== value)
+        }
+        else {
+            newFilters = [ ...filters, value ]
+        }
 
+        setFilters(newFilters)
     }
 
-    
+    useEffect(() => {
+
+        if(filters.length !== 0) {
+            const filteredJobs = allJobs.filter(job => {
+                return Object.values(job).some(jobValue => {
+                    if(Array.isArray(jobValue)) {
+                        return jobValue.some(arrItem => filters.includes(arrItem))
+                    }
+
+                    return filters.includes(jobValue)
+                })
+            })
+            setDisplayedJobs(filteredJobs);
+            return
+        }
+        else {
+            setDisplayedJobs(allJobs)
+        }
+
+    }, [filters, allJobs])
+
+    const clearFilter = () => {
+        setFilters([])
+    }
+
 
     return (
         <main className="main">
@@ -44,12 +79,29 @@ const App = () => {
             </div>
 
 
-            <section className="filter-section">
+            <section className={filters.length === 0 ? "filter-section-unfiltered" : "filter-section"}>
+                {filters.length > 0 && (
+                    <>
+                    <ul className="filter-list" aria-label="Filter List" >
+                        {filters.map(selectedFilter => (
+                            <li key={selectedFilter}>
+                                <p>{selectedFilter}</p>
+                                <button type="button" className="remove-filter" onClick={() => filter(selectedFilter)}>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14">
+                                        <path d="M11.314 0l2.121 2.121-4.596 4.596 4.596 4.597-2.121 2.121-4.597-4.596-4.596 4.596L0 11.314l4.596-4.597L0 2.121 2.121 0l4.596 4.596L11.314 0z"/>
+                                    </svg>
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                    <button type="button" className="clear-button" onClick={() => clearFilter()}>Clear</button>
+                    </>
+                )}
 
             </section>
 
             <section className="jobs-section">
-                {allJobs ? allJobs.map(job => (
+                {displayedJobs ? displayedJobs.map(job => (
 
                     <div key={job.id} className={job.featured ? "job-card-featured" : "job-card"} data-aos="fade-up">
 

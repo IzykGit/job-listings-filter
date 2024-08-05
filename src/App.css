@@ -3,7 +3,7 @@
 
 .background-div {
   background-color: hsl(180, 29%, 50%);
-  height: 10rem;
+  height: 8rem;
   position: absolute;
   min-width: 100%;
   top: 0;
@@ -12,6 +12,7 @@
 
 .background-div > img {
   height: 100%;
+  width: 100%;
 }
 
 
@@ -29,6 +30,113 @@
 .filter-section, .jobs-section {
   width: 90%;
 }
+
+
+
+
+
+
+
+
+
+
+.filter-section-unfiltered {
+  height: 4rem;
+  margin-bottom: 3rem;
+}
+
+
+
+
+.filter-section {
+  height: 4rem;
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 3rem;
+  padding: 0rem 2rem;
+
+  box-sizing: border-box;
+
+  border-radius: 0.3rem;
+  box-shadow: 0px 10px 10px 0px hsl(180, 8%, 52%, 0.2);
+
+}
+
+
+
+.filter-list {
+  list-style: none;
+  padding-left: 0;
+
+  display: flex;
+  justify-content: flex-start;
+
+  gap: 1rem;
+}
+
+.filter-list > li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: fit-content;
+
+  background-color: hsl(180, 31%, 95%);
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+
+.filter-list p {
+  margin: 0rem 0.6rem;
+  color: hsl(180, 29%, 50%);
+  font-weight: 700;
+}
+
+.remove-filter {
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 0;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: hsl(180, 29%, 50%);
+  cursor: pointer;
+}
+
+.remove-filter:hover {
+  background-color: hsl(180, 14%, 20%);
+}
+
+.remove-filter > svg {
+  fill: hsl(0, 0%, 100%);
+}
+
+
+.clear-button {
+  border: none;
+  background-color: transparent;
+
+  color: hsl(180, 29%, 50%);
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.clear-button:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
 
 
 .jobs-section {
@@ -111,8 +219,14 @@
 
 
 
+.job-title {
+  color: hsl(180, 14%, 20%);
+  cursor: pointer;
+}
 
-
+.job-title:hover {
+  color: hsl(180, 29%, 50%);
+}
 
 
 
@@ -149,7 +263,7 @@
 .job-requirements {
   display: flex;
   gap: 1rem;
-
+  padding-left: 0;
   list-style: none;
 }
 
@@ -158,6 +272,7 @@
   font-weight: 700;
   font-size: 0.8rem;
 
+  border-radius: 0.2rem;
   border: 0;
   outline: 0;
 
@@ -165,4 +280,82 @@
   padding: 0.4rem;
 
   cursor: pointer;
+}
+
+.job-requirements > li > button:hover {
+  background-color: hsl(180, 29%, 50%);
+  color: white;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 950px) {
+  .main {
+    padding-bottom: 3rem;
+  }
+
+  .job-card, .job-card-featured {
+    flex-direction: column;
+    padding: 0.5rem 0.5rem;
+
+    gap: 1rem;
+  }
+
+  .job-requirements {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .filter-section {
+    height: fit-content;
+  }
+
+  .filter-list {
+    border: 1px solid black;
+    flex-wrap: wrap;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .jobs-section {
+    gap: 3rem;
+  }
+
+
+  .job-info {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 90%;
+  }
+
+  .job-info > img {
+    width: 4rem;
+    position: relative;
+
+    transform: translateY(-2.5rem);
+    margin-bottom: -3rem;
+  }
+
+  .job-requirements {
+    width: 90%;
+    flex-wrap: wrap;
+
+    padding: 1rem 0rem;
+    border-top: 1px solid hsl(180, 8%, 52%);
+  }
+}
+
+@media screen and (max-width: 325px) {
+  .job-details {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
