@@ -118,7 +118,9 @@ const App = () => {
 
                                 <ul className="job-details">
                                     <li>{job.postedAt}</li>
+                                    <p className="custom-bullet"></p>
                                     <li>{job.contract}</li>
+                                    <p className="custom-bullet"></p>
                                     <li>{job.location}</li>
                                 </ul>
 
