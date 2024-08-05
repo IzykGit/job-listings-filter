@@ -4,7 +4,7 @@ import { getJobs } from "./hooks/fetchJobs"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-import desktopbg from "/images/bg-header-desktop.svg"
+import desktopbg from "/images/bg-header-desktop.svg";
 
 
 import './App.css'
@@ -75,7 +75,6 @@ const App = () => {
     return (
         <main className="main">
             <div className="background-div">
-                <img src={desktopbg}/>
             </div>
 
 

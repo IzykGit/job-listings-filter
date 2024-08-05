@@ -8,11 +8,16 @@
   min-width: 100%;
   top: 0;
   z-index: -1;
+
+  background-image: url(../public/images/bg-header-desktop.svg);
+  overflow: hidden;
 }
 
-.background-div > img {
-  height: 100%;
-  width: 100%;
+
+@media screen and (max-width: 750px) {
+  .background-div {
+    background-image: url(../public//images/bg-header-mobile.svg);
+  }
 }
 
 
